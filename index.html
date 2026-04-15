@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>عيد ميلاد جيكا 🎂</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Cairo', sans-serif;
+      background: #0a0a1a;
+      color: #fff;
+      overflow-x: hidden;
+      min-height: 100vh;
+    }
+
+    /* ===== PARTICLES / STARS ===== */
+    #particles {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .star {
+      position: absolute;
+      border-radius: 50%;
+      background: #fff;
+      animation: twinkle 3s infinite alternate;
+    }
+
+    @keyframes twinkle {
+      from { opacity: 0.2; transform: scale(1); }
+      to   { opacity: 1;   transform: scale(1.4); }
+    }
+
+    /* ===== CONFETTI ===== */
+    .confetti-piece {
+      position: fixed;
+      width: 10px;
+      height: 14px;
+      top: -20px;
+      border-radius: 2px;
+      animation: fall linear infinite;
+      z-index: 1;
+    }
+
+    @keyframes fall {
+      0%   { transform: translateY(-20px) rotate(0deg);   opacity: 1; }
+      100% { transform: translateY(110vh) rotate(720deg); opacity: 0; }
+    }
+
+    /* ===== HERO SECTION ===== */
+    .hero {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      text-align: center;
+      padding: 40px 20px;
+      background: radial-gradient(ellipse at center, #1a0533 0%, #0a0a1a 70%);
+    }
+
+    .crown {
+      font-size: 80px;
+      animation: bounce 1.5s infinite alternate;
+      filter: drop-shadow(0 0 20px gold);
+    }
+
+    @keyframes bounce {
+      from { transform: translateY(0); }
+      to   { transform: translateY(-15px); }
+    }
+
+    .hero h1 {
+      font-size: clamp(2.5rem, 8vw, 6rem);
+      font-weight: 900;
+      background: linear-gradient(135deg, #ffd700, #ff6b35, #e91e8c, #9c27b0);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-shadow: none;
+      margin: 10px 0;
+      animation: glow 2s ease-in-out infinite alternate;
+    }
+
+    @keyframes glow {
+      from { filter: brightness(1); }
+      to   { filter: brightness(1.3) drop-shadow(0 0 30px #ffd700); }
+    }
+
+    .hero .subtitle {
+      font-size: clamp(1.2rem, 3vw, 2rem);
+      color: #c9a0ff;
+      margin: 10px 0 20px;
+      letter-spacing: 2px;
+    }
+
+    .age-badge {
+      display: inline-block;
+      background: linear-gradient(135deg, #ffd700, #ff6b35);
+      color: #0a0a1a;
+      font-size: clamp(1.5rem, 4vw, 2.5rem);
+      font-weight: 900;
+      padding: 15px 40px;
+      border-radius: 50px;
+      margin: 20px 0;
+      box-shadow: 0 0 40px rgba(255, 215, 0, 0.6);
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1);    box-shadow: 0 0 40px rgba(255,215,0,0.6); }
+      50%       { transform: scale(1.05); box-shadow: 0 0 60px rgba(255,215,0,0.9); }
+    }
+
+    .damac-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(255,255,255,0.05);
+      border: 2px solid rgba(255,215,0,0.4);
+      border-radius: 50px;
+      padding: 12px 30px;
+      font-size: 1.1rem;
+      color: #ffd700;
+      margin: 10px 0;
+      backdrop-filter: blur(10px);
+    }
+
+    /* ===== CAKE SECTION ===== */
+    .cake-section {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 60px 20px;
+      background: linear-gradient(180deg, #0a0a1a 0%, #12002a 50%, #0a0a1a 100%);
+    }
+
+    .section-title {
+      font-size: clamp(1.8rem, 4vw, 3rem);
+      font-weight: 900;
+      color: #ffd700;
+      margin-bottom: 40px;
+      text-align: center;
+    }
+
+    .cake {
+      font-size: 120px;
+      animation: cakeBounce 2s ease-in-out infinite;
+      filter: drop-shadow(0 0 30px rgba(255,107,53,0.8));
+    }
+
+    @keyframes cakeBounce {
+      0%, 100% { transform: scale(1) rotate(-3deg); }
+      50%       { transform: scale(1.1) rotate(3deg); }
+    }
+
+    /* ===== CARDS SECTION ===== */
+    .cards-section {
+      position: relative;
+      z-index: 2;
+      padding: 60px 20px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+      margin-top: 20px;
+    }
+
+    .card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,215,0,0.2);
+      border-radius: 20px;
+      padding: 35px 25px;
+      text-align: center;
+      backdrop-filter: blur(10px);
+      transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 60px rgba(255,215,0,0.2);
+      border-color: rgba(255,215,0,0.6);
+    }
+
+    .card .icon {
+      font-size: 55px;
+      margin-bottom: 15px;
+      display: block;
+    }
+
+    .card h3 {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: #ffd700;
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      color: #c9a0ff;
+      line-height: 1.8;
+      font-size: 1rem;
+    }
+
+    /* ===== WISHES SECTION ===== */
+    .wishes-section {
+      position: relative;
+      z-index: 2;
+      padding: 60px 20px;
+      text-align: center;
+      background: radial-gradient(ellipse at center, #1a0533 0%, #0a0a1a 70%);
+    }
+
+    .wish-box {
+      max-width: 750px;
+      margin: 30px auto;
+      background: rgba(255,255,255,0.04);
+      border: 2px solid rgba(233,30,140,0.4);
+      border-radius: 25px;
+      padding: 40px 35px;
+      backdrop-filter: blur(15px);
+      box-shadow: 0 0 60px rgba(233,30,140,0.15);
+    }
+
+    .wish-box p {
+      font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+      line-height: 2;
+      color: #f0d0ff;
+    }
+
+    .wish-box .highlight {
+      color: #ffd700;
+      font-weight: 700;
+    }
+
+    /* ===== FIREWORKS BUTTON ===== */
+    .btn-celebrate {
+      display: inline-block;
+      margin-top: 40px;
+      padding: 18px 50px;
+      font-family: 'Cairo', sans-serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #0a0a1a;
+      background: linear-gradient(135deg, #ffd700, #ff6b35);
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      box-shadow: 0 0 30px rgba(255,215,0,0.5);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .btn-celebrate:hover {
+      transform: scale(1.07);
+      box-shadow: 0 0 50px rgba(255,215,0,0.8);
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      padding: 30px 20px;
+      color: rgba(255,255,255,0.3);
+      font-size: 0.9rem;
+      border-top: 1px solid rgba(255,255,255,0.05);
+    }
+
+    footer span {
+      color: #e91e8c;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 480px) {
+      .cake { font-size: 80px; }
+      .crown { font-size: 55px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Stars background -->
+  <div id="particles"></div>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero">
+    <div class="crown">👑</div>
+    <h1>عيد ميلاد سعيد</h1>
+    <h1 style="font-size: clamp(3rem, 10vw, 7rem);">جيكا</h1>
+    <p class="subtitle">قائد كلان DAMAC الأسطوري</p>
+    <div class="age-badge">🎂 32 سنة من النجاح 🎂</div>
+    <div class="damac-badge">
+      🏆 &nbsp; قائد كلان &nbsp; <strong>DAMAC</strong> &nbsp; 🏆
+    </div>
+    <p style="margin-top:25px; color:#c9a0ff; font-size:1.1rem; max-width:500px; line-height:1.8;">
+      اليوم نحتفل بميلاد قائد استثنائي، رجل بنى إمبراطورية وقاد فريقه نحو القمة
+    </p>
+  </section>
+
+  <!-- ===== CAKE ===== -->
+  <section class="cake-section">
+    <h2 class="section-title">🎉 احتفالنا بك يا جيكا 🎉</h2>
+    <div class="cake">🎂</div>
+    <p style="margin-top:25px; color:#c9a0ff; font-size:1.2rem; text-align:center; max-width:600px; line-height:2;">
+      32 شمعة تضيء طريق قائد عظيم<br/>
+      كل شمعة تحكي قصة انتصار وإنجاز
+    </p>
+  </section>
+
+  <!-- ===== CARDS ===== -->
+  <section class="cards-section">
+    <h2 class="section-title" style="text-align:center;">✨ صفات القائد ✨</h2>
+    <div class="cards-grid">
+      <div class="card">
+        <span class="icon">⚔️</span>
+        <h3>القائد الأسطوري</h3>
+        <p>جيكا ليس مجرد قائد، هو رمز القوة والحكمة في كلان DAMAC. كل قرار يتخذه يقود الفريق للنصر.</p>
+      </div>
+      <div class="card">
+        <span class="icon">🔥</span>
+        <h3>روح لا تُكسر</h3>
+        <p>في أصعب المعارك وأحلك اللحظات، جيكا يبقى صامداً ويشعل الحماس في قلوب كل أعضاء الكلان.</p>
+      </div>
+      <div class="card">
+        <span class="icon">🏆</span>
+        <h3>سجل الانتصارات</h3>
+        <p>تحت قيادته، حقق كلان DAMAC انتصارات لا تُحصى وبنى سمعة لا تُضاهى في عالم اللعب.</p>
+      </div>
+      <div class="card">
+        <span class="icon">🤝</span>
+        <h3>أخ قبل أن يكون قائداً</h3>
+        <p>جيكا يعامل كل عضو في الكلان كأخ حقيقي، يدعم الجميع ويبني روح الفريق الحقيقية.</p>
+      </div>
+      <div class="card">
+        <span class="icon">🧠</span>
+        <h3>استراتيجي بارع</h3>
+        <p>عقله يفكر دائماً خطوات للأمام، يضع الخطط ويقود الفريق بذكاء وحنكة نادرة.</p>
+      </div>
+      <div class="card">
+        <span class="icon">⭐</span>
+        <h3>نجم لا يغيب</h3>
+        <p>32 عاماً من العطاء والتميز، ونجمه يزداد لمعاناً مع كل يوم جديد.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== WISHES ===== -->
+  <section class="wishes-section">
+    <h2 class="section-title">💌 رسالة من القلب 💌</h2>
+    <div class="wish-box">
+      <p>
+        يا <span class="highlight">جيكا</span>، في يوم ميلادك الـ <span class="highlight">32</span>،<br/>
+        نتمنى لك عمراً مليئاً بالصحة والسعادة والنجاح،<br/>
+        أنت لم تكن فقط قائداً لكلان <span class="highlight">DAMAC</span>،<br/>
+        بل كنت الروح التي تجمعنا والنور الذي يهدينا.<br/><br/>
+        كل عام وأنت تكبر، تكبر معك انتصاراتنا،<br/>
+        وكل يوم يمر يثبت أنك <span class="highlight">الأفضل</span> دائماً.<br/><br/>
+        🎂 <span class="highlight">كل عام وأنت بخير يا قائدنا</span> 🎂
+      </p>
+    </div>
+    <button class="btn-celebrate" onclick="launchFireworks()">
+      🎆 احتفل معنا! 🎆
+    </button>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <p>صُنع بـ <span>❤️</span> لأعظم قائد في كلان DAMAC &nbsp;|&nbsp; جيكا 32 🎂</p>
+  </footer>
+
+  <script>
+    // ===== GENERATE STARS =====
+    const particlesContainer = document.getElementById('particles');
+    for (let i = 0; i < 120; i++) {
+      const star = document.createElement('div');
+      star.classList.add('star');
+      const size = Math.random() * 3 + 1;
+      star.style.cssText = `
+        width: ${size}px;
+        height: ${size}px;
+        left: ${Math.random() * 100}%;
+        top: ${Math.random() * 100}%;
+        animation-delay: ${Math.random() * 3}s;
+        animation-duration: ${2 + Math.random() * 3}s;
+        opacity: ${Math.random() * 0.7 + 0.1};
+      `;
+      particlesContainer.appendChild(star);
+    }
+
+    // ===== GENERATE CONFETTI =====
+    const colors = ['#ffd700','#ff6b35','#e91e8c','#9c27b0','#00bcd4','#4caf50','#ff5722'];
+    for (let i = 0; i < 60; i++) {
+      const piece = document.createElement('div');
+      piece.classList.add('confetti-piece');
+      piece.style.cssText = `
+        left: ${Math.random() * 100}%;
+        background: ${colors[Math.floor(Math.random() * colors.length)]};
+        animation-duration: ${3 + Math.random() * 5}s;
+        animation-delay: ${Math.random() * 5}s;
+        transform: rotate(${Math.random() * 360}deg);
+        width: ${6 + Math.random() * 8}px;
+        height: ${10 + Math.random() * 10}px;
+        border-radius: ${Math.random() > 0.5 ? '50%' : '2px'};
+      `;
+      document.body.appendChild(piece);
+    }
+
+    // ===== FIREWORKS ON BUTTON CLICK =====
+    function launchFireworks() {
+      const emojis = ['🎆','🎇','✨','🎉','🎊','⭐','🌟','💥','🔥','👑'];
+      for (let i = 0; i < 30; i++) {
+        const el = document.createElement('div');
+        el.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+        el.style.cssText = `
+          position: fixed;
+          font-size: ${20 + Math.random() * 30}px;
+          left: ${Math.random() * 100}vw;
+          top: ${Math.random() * 100}vh;
+          z-index: 9999;
+          pointer-events: none;
+          animation: popFade 1.5s ease forwards;
+        `;
+        document.body.appendChild(el);
+        setTimeout(() => el.remove(), 1600);
+      }
+    }
+
+    // Inject keyframe for fireworks pop
+    const style = document.createElement('style');
+    style.textContent = `
+      @keyframes popFade {
+        0%   { opacity: 0; transform: scale(0) rotate(0deg); }
+        50%  { opacity: 1; transform: scale(1.5) rotate(180deg); }
+        100% { opacity: 0; transform: scale(0.5) rotate(360deg) translateY(-60px); }
+      }
+    `;
+    document.head.appendChild(style);
+  </script>
+</body>
+</html>
